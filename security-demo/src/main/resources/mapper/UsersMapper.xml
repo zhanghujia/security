@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.securitydemo.mapper.UsersMapper">
+
+    <resultMap id="BaseResultMap" type="com.example.securitydemo.model.Users">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="user_name" jdbcType="VARCHAR" property="userName"/>
+        <result column="pass_word" jdbcType="VARCHAR" property="passWord"/>
+        <result column="age" jdbcType="INTEGER" property="age"/>
+        <result column="birth_day" jdbcType="BIGINT" property="birthDay"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, user_name, pass_word, age, birth_day
+    </sql>
+
+    <select id="queryByName" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM users
+        WHERE user_name =#{userName}
+        LIMIT 1
+    </select>
+
+    <insert id="insert" keyColumn="id" keyProperty="id"
+            parameterType="com.example.securitydemo.model.Users" useGeneratedKeys="true">
+        insert into users (user_name, pass_word, age,
+                           birth_day)
+        values (#{userName,jdbcType=VARCHAR}, #{passWord,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER},
+                #{birthDay,jdbcType=BIGINT})
+    </insert>
+
+
+</mapper>

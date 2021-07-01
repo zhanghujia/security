@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户登录页</title>
+</head>
+<body>
+<div style="text-align: center;margin:0 auto;display: table">
+    <h2>标准登录页面</h2>
+    <h3>表单登录页</h3>
+    <form action="/auth/login" method="post">
+        <table>
+            <tr>
+                <td>用户名:</td>
+                <td><label>
+                    <input type="text" name="username">
+                </label></td>
+            </tr>
+            <tr>
+                <td>密码:</td>
+                <td><label>
+                    <input type="text" name="password">
+                </label></td>
+            </tr>
+            <tr>
+                <td>图片验证码:</td>
+                <td>
+                    <label>
+                        <input type="text" name="imageCode">
+                        <img src="/code/image?width=200">
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input name="remember-me" type="checkbox" value="true">记住我</input>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button type="submit">登录</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <hr/>
+
+    <h3>手机短信登录页</h3>
+    <form action="/auth/mobile" method="post">
+        <table>
+            <tr>
+                <td>手机号</td>
+                <td><label>
+                    <input type="text" name="mobile">
+                </label></td>
+            </tr>
+            <tr>
+                <td>短信验证码:</td>
+                <td><label>
+                    <input type="text" name="smsCode">
+                    <a href="/code/sms?mobile=18305178922">
+                        发送验证码
+                    </a>
+                </label></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button type="submit">登录</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <h3>社交登录页</h3>
+    <a href="/qqLogin/callback.do">qq登录</a>
+
+</div>
+
+
+</body>
+</html>
