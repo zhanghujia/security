@@ -3,7 +3,7 @@
 SpringParent主类 
 知识点: 
 1. OAuth协议
-2. SpringSecurity 权限框架
+2. SpringSecurity 权限框架 记住我功能 
 3. 多线程异步任务 
 4. Swagger3.0 接口文档
 5. 文件上传下载 
